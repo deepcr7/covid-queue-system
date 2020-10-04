@@ -1,11 +1,11 @@
 const mongoose = require("mongoose")
 
 const tokenSchema = mongoose.Schema({
-  user: {
+  user: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
       required: true
-  },
+  }],
   queue: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Queue',
@@ -25,3 +25,7 @@ const tokenSchema = mongoose.Schema({
 const Token =  mongoose.model('Queue', tokenSchema)
 
 module.exports = Token;
+
+module.exports.addToken = (newToken, callback) => {
+    newToken.save(callback)
+};

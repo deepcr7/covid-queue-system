@@ -15,5 +15,3 @@ Router.get('/:queueId', (req,res) => {
   })
 });
 
-//edit facility provided to admin to edit the queue
-
